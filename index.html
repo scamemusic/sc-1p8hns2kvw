@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow, noarchive">
 <title>Scame — 10 лет</title>
+<script>
+/* телефоны и Safari: облегчённый режим без тяжёлого размытия, иначе iPhone закрывает вкладку */
+(function(){
+  var u = navigator.userAgent,
+      ios = /iP(hone|ad|od)/.test(u) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1),
+      safari = /Safari\//.test(u) && !/(Chrome|Chromium|CriOS|FxiOS|Edg|OPR|YaBrowser)\//.test(u),
+      touch = window.matchMedia && matchMedia('(pointer: coarse)').matches;
+  if (ios || safari || touch) document.documentElement.classList.add('lite');
+})();
+</script>
 <link rel="icon" href="img/avatar.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -355,6 +365,19 @@ footer p{color:var(--muted);margin-top:14px}
 .mini .x{flex:none;width:32px;height:32px;border-radius:50%;color:var(--muted);font-size:22px;line-height:1}
 .mini .x:hover{color:var(--text);background:rgba(255,255,255,.08)}
 
+/* ---------- облегчённый режим (телефоны, Safari) ---------- */
+.lite body::before{display:none}
+.lite .lg::before{-webkit-backdrop-filter:none;backdrop-filter:none;filter:none;
+  background:linear-gradient(140deg,rgba(255,255,255,.075),rgba(255,255,255,.015) 45%,rgba(255,255,255,.045)),linear-gradient(var(--tint,transparent),var(--tint,transparent)),rgba(18,12,29,.86)}
+.lite .lg::after{box-shadow:inset 1px 1.5px 0 rgba(255,255,255,.3),inset -1px -1px 0 rgba(255,255,255,.08),inset 0 0 0 1px rgba(255,255,255,.07),inset 0 -16px 30px -20px rgba(196,178,255,.28)}
+.lite .island::before,.lite .mini::before{-webkit-backdrop-filter:blur(14px) saturate(160%);backdrop-filter:blur(14px) saturate(160%);
+  background:linear-gradient(140deg,rgba(255,255,255,.09),rgba(255,255,255,.02)),rgba(20,14,32,.62)}
+.lite .bub i{-webkit-backdrop-filter:none;backdrop-filter:none}
+.lite .bub:nth-child(n+4){display:none}
+.lite .amb i,.lite .mq,.lite .hero-bg,.lite .bub{will-change:auto}
+.lite .ev,.lite .rvg{transform:translateY(46px) scale(.97)}
+.lite .ev.in,.lite .rvg.in{transform:none}
+
 @media (max-width:960px){
   .ch-grid{grid-template-columns:minmax(0,1fr);gap:28px}
   .ch-sticky{position:static}
@@ -666,9 +689,9 @@ const SVG = {
 /* картинка целиком, в своих пропорциях, по центру; не выше maxH */
 function media(n, maxH = 460){
   const [w, h] = IMG[n], dw = Math.min(w, Math.round(maxH * w / h));
-  return `<figure class="media"><img src="img/${n}" width="${w}" height="${h}" style="width:${dw}px" alt=""></figure>`;
+  return `<figure class="media"><img src="img/${n}" width="${w}" height="${h}" style="width:${dw}px" loading="lazy" decoding="async" alt=""></figure>`;
 }
-const gallery = g => `<div class="gallery" style="--n:${g.length}">${g.map(n => `<img src="img/${n}" width="${IMG[n][0]}" height="${IMG[n][1]}" alt="">`).join('')}</div>`;
+const gallery = g => `<div class="gallery" style="--n:${g.length}">${g.map(n => `<img src="img/${n}" width="${IMG[n][0]}" height="${IMG[n][1]}" loading="lazy" decoding="async" alt="">`).join('')}</div>`;
 const player = a => `<div class="player" data-src="${a.src}" data-title="${a.title}" data-artist="${a.artist}">
   <button class="pbtn" aria-label="Слушать">${SVG.play}</button>
   <div class="pinfo"><b>${a.title}</b><small>${a.artist}</small><div class="pbar"><i></i></div></div>
@@ -829,7 +852,8 @@ addEventListener('pointermove', e => {
 /* дорожка-волна вдоль событий: заполняется, пока листаете */
 function rng(seed){ let s = seed % 2147483647 || 1; return () => (s = s * 16807 % 2147483647) / 2147483647; }
 function drawWave(sec){
-  const box = sec.querySelector('.wave'), H = Math.round(box.clientHeight), W = box.clientWidth || 28, dpr = Math.min(2, devicePixelRatio || 1);
+  const lite = document.documentElement.classList.contains('lite');
+  const box = sec.querySelector('.wave'), H = Math.round(box.clientHeight), W = box.clientWidth || 28, dpr = Math.min(lite ? 1.5 : 2, devicePixelRatio || 1);
   if (!H) return;
   const r = rng(+sec.dataset.year * 97), seed = r() * 6, lens = [];
   for (let y = 6, k = 0; y < H - 6; y += 6, k++){
