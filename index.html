@@ -1,0 +1,1018 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Scame — 10 лет</title>
+<link rel="icon" href="img/avatar.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,500;0,600;0,700;0,800;0,900;1,800&display=swap" rel="stylesheet">
+<style>
+@property --a1{syntax:'<color>';inherits:true;initial-value:#2a1846}
+@property --a2{syntax:'<color>';inherits:true;initial-value:#3b2a8f}
+@property --a3{syntax:'<color>';inherits:true;initial-value:#1a1030}
+:root{
+  --bg:#08060c;
+  --text:#f4f1fa; --muted:#b4acc6; --dim:#6d6680; --ghost:rgba(255,255,255,.12);
+  --lilac:#c4b2ff; --pink:#ff7ac8; --sticker:#dd5ce0; --vk:#0077ff;
+  --font:'Nunito',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1); --spring:cubic-bezier(.34,1.56,.64,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{background:var(--bg);color:var(--text);font:500 17px/1.6 var(--font);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.06;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='180' height='180' filter='url(%23n)'/></svg>")}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+::selection{background:var(--lilac);color:#120d1a}
+header,main,footer{position:relative;z-index:2}
+section{scroll-margin-top:80px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+
+/* ---------- фон: цветной свет и стеклянные пузыри ---------- */
+.amb{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;transition:--a1 1.6s ease,--a2 1.6s ease,--a3 1.6s ease}
+.amb i{position:absolute;width:80vmax;height:80vmax;border-radius:50%;opacity:.55;will-change:transform}
+.amb i:nth-child(1){left:-30vmax;top:-36vmax;background:radial-gradient(closest-side,var(--a1),transparent);animation:d1 28s ease-in-out infinite alternate}
+.amb i:nth-child(2){right:-36vmax;top:4vh;background:radial-gradient(closest-side,var(--a2),transparent);animation:d2 34s ease-in-out infinite alternate}
+.amb i:nth-child(3){left:4vw;bottom:-52vmax;background:radial-gradient(closest-side,var(--a3),transparent);animation:d3 40s ease-in-out infinite alternate}
+@keyframes d1{to{transform:translate(18vw,14vh) scale(1.15)}}
+@keyframes d2{to{transform:translate(-16vw,20vh) scale(.9)}}
+@keyframes d3{to{transform:translate(12vw,-18vh) scale(1.1)}}
+.bubbles{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.bub{position:absolute;top:0;width:var(--s);height:var(--s);will-change:transform}
+.bub i{display:block;width:100%;height:100%;border-radius:50%;
+  opacity:.85;
+  background:radial-gradient(circle at 32% 26%,rgba(255,255,255,.5) 0,rgba(255,255,255,.12) 16%,rgba(255,255,255,0) 40%),
+             radial-gradient(circle at 70% 80%,rgba(200,140,255,.38),rgba(200,140,255,0) 55%),
+             radial-gradient(circle at 50% 50%,rgba(255,255,255,0) 58%,rgba(255,255,255,.10) 70%,rgba(255,255,255,0) 72%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.16),inset -10px -12px 22px rgba(150,90,255,.28),inset 8px 10px 18px rgba(255,255,255,.12),0 26px 50px -22px rgba(0,0,0,.8);
+  -webkit-backdrop-filter:blur(5px) saturate(170%);backdrop-filter:blur(5px) saturate(170%);
+  animation:bob var(--t) ease-in-out infinite alternate}
+@keyframes bob{to{transform:translate(var(--bx),var(--by)) rotate(12deg)}}
+
+/* ---------- жидкое стекло ---------- */
+.lg{position:relative;isolation:isolate}
+.lg::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;pointer-events:none;
+  background:linear-gradient(140deg,rgba(255,255,255,.085),rgba(255,255,255,.015) 45%,rgba(255,255,255,.045)),var(--tint,rgba(14,10,22,.42));
+  -webkit-backdrop-filter:blur(var(--blur,20px)) saturate(175%) brightness(1.06);backdrop-filter:blur(var(--blur,20px)) saturate(175%) brightness(1.06)}
+.lg::after{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;pointer-events:none;
+  background:radial-gradient(260px circle at var(--mx,50%) var(--my,-60%),rgba(255,255,255,.12),transparent 62%),
+             linear-gradient(115deg,transparent calc(var(--gy,.5) * 130% - 42%),rgba(255,255,255,.075) calc(var(--gy,.5) * 130% - 22%),transparent calc(var(--gy,.5) * 130% - 2%));
+  box-shadow:inset 1px 1.5px 0 rgba(255,255,255,.32),inset -1px -1px 0 rgba(255,255,255,.08),inset 0 0 0 1px rgba(255,255,255,.07),
+             inset 0 -16px 30px -20px rgba(196,178,255,.30),0 26px 60px -30px rgba(0,0,0,.9)}
+.lg.refr{overflow:hidden}
+.lg.refr::before{filter:url(#lg-refract)}
+
+.sticker{display:inline-block;background:var(--sticker);color:#1a061d;font-weight:900;font-size:12px;line-height:1;letter-spacing:.05em;text-transform:uppercase;
+  padding:6px 10px 5px;border-radius:6px;transform:rotate(-4deg);box-shadow:0 2px 0 rgba(0,0,0,.4);white-space:nowrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 26px;border-radius:999px;font:800 16px var(--font);color:var(--text);transition:transform .25s var(--spring);white-space:nowrap}
+.btn:hover{transform:translateY(-2px) scale(1.02)}
+.btn svg{width:16px;height:16px;fill:currentColor;flex:none}
+.btn-prime{--tint:rgba(170,140,255,.30)}
+.btn-vk{background:var(--vk);color:#fff}
+.btn-vk:hover{background:#1a85ff}
+.i-pause,.playing .i-play{display:none}
+.playing .i-pause{display:block}
+.rv{opacity:0;transform:translateY(30px);transition:opacity .8s var(--ease) var(--d,0s),transform .9s var(--ease) var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+.rvg{transform:perspective(1000px) translateY(70px) rotateX(16deg) scale(.95);transform-origin:50% 0;transition:transform 1.1s var(--ease) var(--d,0s)}
+.rvg.in{transform:none}
+.rvg>*{opacity:0;transition:opacity .7s var(--ease) calc(var(--d,0s) + .3s)}
+.rvg.in>*{opacity:1}
+.tw{display:inline-block;opacity:0;transform:translateY(.5em) rotate(4deg);transition:opacity .6s var(--ease) calc(.2s + var(--i,0) * .07s),transform .9s var(--spring) calc(.2s + var(--i,0) * .07s)}
+.in .tw,.tw.in{opacity:1;transform:none}
+
+/* ---------- островок сверху ---------- */
+.island{position:fixed;top:14px;left:50%;z-index:80;width:min(320px,calc(100% - 28px));border-radius:30px;padding:6px;
+  transform:translate(-50%,-160%);transition:transform .7s var(--spring),width .5s var(--spring),border-radius .5s var(--ease)}
+.island.show{transform:translate(-50%,0)}
+.island.open{width:min(460px,calc(100% - 28px));border-radius:26px}
+.island.pulse{animation:squish .6s var(--spring)}
+@keyframes squish{30%{scale:1.05 .92}60%{scale:.98 1.03}100%{scale:1}}
+.isl-row{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding-right:12px}
+.isl-ring{position:relative;flex:none;width:42px;height:42px}
+.isl-ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.isl-ring circle{fill:none;stroke-width:3}
+.isl-ring .bg{stroke:rgba(255,255,255,.14)}
+.isl-ring .fg{stroke:var(--lilac);stroke-linecap:round;stroke-dasharray:113.1;stroke-dashoffset:113.1}
+.isl-ring b{position:absolute;inset:0;display:grid;place-items:center;font-weight:900;font-size:11px}
+.isl-t{flex:1;min-width:0}
+.isl-t small{display:block;font-weight:700;font-size:12px;line-height:1.2;color:var(--muted)}
+.isl-t span{display:block;font-weight:900;font-size:15px;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.isl-t.swap{animation:swap .5s var(--ease)}
+@keyframes swap{from{opacity:0;transform:translateY(8px)}}
+.isl-chev{flex:none;width:18px;height:18px;fill:var(--muted);transition:transform .4s var(--spring)}
+.island.open .isl-chev{transform:rotate(180deg)}
+.isl-menu{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--spring)}
+.island.open .isl-menu{grid-template-rows:1fr}
+.isl-menu>div{overflow:hidden}
+.isl-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;padding:10px 4px 4px}
+.isl-grid a{padding:9px 4px;border-radius:14px;font-weight:800;font-size:13px;text-align:center;background:rgba(255,255,255,.06);transition:background .2s}
+.isl-grid a:hover{background:rgba(255,255,255,.14)}
+.isl-grid a.on{background:var(--lilac);color:#120d1a}
+
+/* ---------- первый экран ---------- */
+.hero{position:relative;height:100vh;min-height:640px;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:-4% 0;background:url(img/hero.jpg) 68% center/cover no-repeat;will-change:transform;transform-origin:62% 45%}
+.hero::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg,var(--bg) 0%,rgba(8,6,12,.86) 30%,rgba(8,6,12,.25) 58%,rgba(8,6,12,0) 74%),linear-gradient(0deg,var(--bg) 0%,rgba(8,6,12,0) 26%)}
+.hero-in{position:relative;z-index:2;width:100%}
+.hero-in>:not(.hero-btns){opacity:var(--ho,1)}
+.hero-date{font-weight:700;font-size:15px;color:var(--muted)}
+.hero-title{position:relative;display:inline-block;font-weight:900;font-size:clamp(76px,11vw,164px);line-height:1;letter-spacing:-.015em;color:var(--lilac);margin:8px 0 22px;padding-right:.08em;white-space:nowrap}
+.hero-title .sticker{position:absolute;left:100%;top:.06em;margin-left:-.35em;font-size:max(13px,.13em);transform:rotate(-7deg)}
+.hero-sub{font-weight:800;font-size:clamp(21px,2.2vw,28px);line-height:1.25;max-width:520px}
+.hero-p{color:var(--muted);max-width:460px;margin-top:12px}
+.hero-btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.hero-cue{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:10px;font-weight:700;font-size:13px;color:var(--muted)}
+.hero-cue i{position:relative;width:2px;height:42px;background:var(--ghost);border-radius:2px;overflow:hidden}
+.hero-cue i::after{content:"";position:absolute;left:0;top:-14px;width:2px;height:14px;background:var(--lilac);animation:cue 1.8s var(--ease) infinite}
+@keyframes cue{to{top:42px}}
+.h-in{animation:hin 1s var(--ease) backwards}
+.h-up{animation:hup 1.1s var(--spring) .5s backwards}
+@keyframes hin{from{opacity:0;transform:translateY(24px)}}
+@keyframes hup{from{transform:translateY(40px) scale(.9)}}
+
+/* ---------- цитата ---------- */
+.manifest{height:170vh;position:relative}
+.manifest-in{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center}
+.manifest p{font-weight:900;font-size:clamp(28px,4vw,54px);line-height:1.22;max-width:1060px}
+.manifest .w{display:inline-block;color:rgba(255,255,255,.13);transform:translateY(.12em);transition:color .35s,transform .5s var(--spring)}
+.manifest .w.on{color:var(--text);transform:none}
+.manifest .w.hl.on{color:var(--lilac)}
+.manifest .who{margin-top:28px;font-weight:700;color:var(--muted);opacity:0;transform:translateY(10px);transition:.6s var(--ease)}
+.manifest .who.on{opacity:1;transform:none}
+
+/* ---------- главы ---------- */
+.ch{padding:14vh 0 4vh}
+.ch-grid{display:grid;grid-template-columns:minmax(0,400px) minmax(0,1fr);gap:72px}
+.ch-sticky{position:sticky;top:15vh;container-type:inline-size}
+.ch-n{font-weight:700;font-size:15px;color:var(--muted)}
+.yr{display:flex;font-weight:900;font-size:min(168px,37cqi);line-height:1;margin:4px 0 14px}
+.slot{display:block;height:1.1em;overflow:hidden}
+.strip{display:block;transition:transform 1.6s var(--ease)}
+.strip span{display:block;height:1.1em;line-height:1.1em;text-align:center}
+.slot.dim{color:rgba(255,255,255,.13)}
+.yr-to{font-weight:900;font-size:26px;color:var(--muted);margin:-10px 0 14px}
+.ch-side h2{font-weight:900;font-size:clamp(30px,3.2vw,44px);line-height:1.12}
+.ch-side .lead{color:var(--muted);margin-top:12px;opacity:0;transform:translateY(14px);transition:opacity .7s var(--ease) .55s,transform .8s var(--ease) .55s}
+.ch-sticky.in .lead{opacity:1;transform:none}
+.facts{list-style:none;margin-top:20px;display:grid;gap:8px}
+.facts li{display:flex;align-items:center;gap:10px;font-weight:800;font-size:15px;opacity:0;transform:translateX(-18px);transition:opacity .6s var(--ease) calc(.75s + var(--i) * .1s),transform .7s var(--spring) calc(.75s + var(--i) * .1s)}
+.facts li::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:var(--lilac)}
+.ch-sticky.in .facts li{opacity:1;transform:none}
+
+.ch-events{position:relative;padding-left:58px}
+.wave{position:absolute;left:0;top:0;bottom:0;width:28px}
+.wave canvas{position:absolute;left:0;top:0;width:28px}
+.wv-lit{position:absolute;left:0;top:0;width:28px;height:0;overflow:hidden}
+.wv-head{position:absolute;left:14px;top:0;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:#fff;
+  box-shadow:0 0 0 4px rgba(196,178,255,.28),0 0 22px 2px rgba(196,178,255,.85);opacity:0;transition:opacity .3s}
+.ch-events.playing .wv-head{opacity:1}
+.ev{position:relative;margin-bottom:26px;transform:perspective(1100px) translate3d(0,80px,0) rotateX(16deg) scale(.95);transform-origin:50% 0;transition:transform 1.15s var(--ease)}
+.ev.in{transform:none}
+.ev::before{content:"";position:absolute;left:-51px;top:26px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid rgba(255,255,255,.22);z-index:2;transition:background .4s .3s,border-color .4s .3s,box-shadow .4s .3s}
+.ev.in::before{background:var(--lilac);border-color:#fff;box-shadow:0 0 14px rgba(196,178,255,.9)}
+.card{border-radius:22px;padding:24px}
+.card>*:not(.sticker){opacity:0;transform:translateY(14px);transition:opacity .6s var(--ease) calc(.22s + var(--i,0) * .07s),transform .7s var(--ease) calc(.22s + var(--i,0) * .07s)}
+.ev.in .card>*:not(.sticker){opacity:1;transform:none}
+.card>.sticker{position:absolute;top:-11px;right:20px;z-index:3;opacity:0}
+.ev.in .card>.sticker{animation:stick .8s var(--spring) .6s forwards}
+@keyframes stick{0%{opacity:0;transform:scale(.3) rotate(-30deg)}100%{opacity:1;transform:rotate(-4deg)}}
+.date{font-weight:800;font-size:14px;color:var(--lilac);margin-bottom:6px}
+.card h3{font-weight:900;font-size:clamp(21px,2vw,26px);line-height:1.2;margin-bottom:8px}
+.card p{color:var(--muted)}
+.card .q{color:var(--text);font-weight:800;font-style:italic;font-size:19px;line-height:1.4;margin:2px 0 8px}
+.media{margin-top:18px;display:flex;justify-content:center}
+.media img{height:auto;border-radius:14px}
+.gallery{display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));gap:10px;margin-top:18px;align-items:start}
+.gallery img{width:100%;height:auto;border-radius:12px}
+.media img,.gallery img{clip-path:inset(14% 14% 14% 14% round 48px);transform:scale(1.06);transition:clip-path 1.2s var(--ease) .4s,transform 1.5s var(--ease) .4s}
+.gallery img:nth-child(2){transition-delay:.5s}.gallery img:nth-child(3){transition-delay:.6s}
+.ev.in .media img{clip-path:inset(0 0 0 0 round 14px);transform:none}
+.ev.in .gallery img{clip-path:inset(0 0 0 0 round 12px);transform:none}
+.stat{display:flex;align-items:baseline;gap:8px;margin-top:14px}
+.stat b{font-weight:900;font-size:32px;line-height:1;white-space:nowrap}
+.stat span{color:var(--muted);font-size:15px}
+.more{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-weight:800;font-size:15px;color:var(--lilac);transition:color .2s}
+.more::after{content:"→";transition:transform .25s var(--spring)}
+.more:hover{color:var(--text)}
+.more:hover::after{transform:translateX(4px)}
+.ev.mile .card{--tint:rgba(92,52,190,.34);text-align:center;padding:34px 24px;container-type:inline-size}
+.mile-num{font-weight:900;font-size:clamp(54px,20cqi,104px);line-height:1;white-space:nowrap;margin-top:6px}
+.ev.mile .card>.mile-num{transform:scale(.6);transition:opacity .5s .3s,transform 1s var(--spring) .3s}
+.ev.mile.in .card>.mile-num{transform:none}
+.mile-lbl{font-weight:900;font-size:20px;color:var(--lilac);margin-top:6px}
+.ev.mile p{color:#d8d0ec;margin-top:8px}
+.ev.final .card{--tint:rgba(120,60,200,.34);text-align:center;padding:42px 28px}
+.ev.final .card>.avatar{width:88px;height:88px;border-radius:50%;margin:0 auto 18px;transform:scale(.4) rotate(-120deg);transition:opacity .5s .2s,transform 1.3s var(--spring) .2s}
+.ev.final.in .card>.avatar{transform:none}
+.ev.final h3{font-size:clamp(28px,3vw,40px)}
+.ev.final p{color:#d8d0ec;max-width:480px;margin:0 auto}
+.mock{margin-top:18px;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.1);background:rgba(0,0,0,.25)}
+.mock-bar{display:flex;align-items:center;gap:6px;padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.08)}
+.mock-bar i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.18)}
+.mock-bar span{margin-left:8px;flex:1;padding:3px 10px;border-radius:8px;background:rgba(255,255,255,.06);font-weight:700;font-size:13px;color:var(--muted)}
+.mock-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:12px}
+.mock-grid div{border-radius:10px;background:rgba(120,80,220,.25);padding:10px;display:flex;flex-direction:column;justify-content:space-between;aspect-ratio:1}
+.mock-grid b{font-weight:900;font-size:13px}
+.mock-grid em{align-self:flex-start;font-style:normal;font-weight:800;font-size:11px;padding:3px 9px;border-radius:999px;background:var(--text);color:#120d1a}
+
+/* ---------- плеер ---------- */
+.player{display:flex;align-items:center;gap:14px;margin-top:18px;padding:12px 16px 12px 12px;border-radius:18px;background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+.pbtn{flex:none;width:46px;height:46px;border-radius:50%;background:var(--text);display:grid;place-items:center;transition:transform .25s var(--spring),background .2s}
+.pbtn svg{width:16px;height:16px;fill:#120d1a}
+.pbtn:hover{transform:scale(1.08)}
+.playing .pbtn,.pbtn.playing{background:var(--lilac)}
+.pinfo{flex:1;min-width:0}
+.pinfo b{display:block;font-weight:800;font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pinfo small{display:block;color:var(--muted);font-size:13px;line-height:1.3}
+.pbar{position:relative;height:4px;border-radius:4px;background:rgba(255,255,255,.12);margin-top:9px;cursor:pointer}
+.pbar::after{content:"";position:absolute;inset:-8px 0}
+.pbar i{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:4px;background:var(--lilac)}
+.ptime{flex:none;font-weight:700;font-size:13px;color:var(--dim);min-width:38px;text-align:right;font-variant-numeric:tabular-nums}
+.eq{display:none;gap:3px;align-items:flex-end;height:14px;flex:none}
+.playing .eq{display:flex}
+.eq i{width:3px;background:var(--lilac);border-radius:2px;animation:eq 1s ease-in-out infinite}
+.eq i:nth-child(2){animation-delay:-.4s}.eq i:nth-child(3){animation-delay:-.7s}.eq i:nth-child(4){animation-delay:-.2s}
+@keyframes eq{0%,100%{height:3px}50%{height:14px}}
+.ab{margin-top:12px;padding:16px;border-radius:18px;background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+.ab-h{font-weight:900;font-size:16px;margin-bottom:12px}
+.ab-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.seg{position:relative;display:inline-flex;padding:4px;border-radius:999px;background:rgba(255,255,255,.07)}
+.seg i{position:absolute;top:4px;bottom:4px;left:4px;width:calc(50% - 4px);border-radius:999px;background:var(--text);transition:transform .45s var(--spring)}
+.seg.posle i{transform:translateX(100%)}
+.seg button{position:relative;width:84px;height:38px;border-radius:999px;font-weight:800;font-size:14px;color:var(--muted);transition:color .3s}
+.seg button.on{color:#120d1a}
+.ab small{display:block;color:var(--muted);font-size:14px;margin-top:10px}
+
+/* ---------- рекорд ---------- */
+.rec{position:relative;height:250vh;margin-top:6vh}
+.rec-sticky{position:sticky;top:0;height:100vh;display:flex;align-items:center}
+.rec-card{--tint:rgba(70,22,100,.40);border-radius:32px;padding:clamp(28px,5vw,60px);transform-origin:50% 50%}
+.rec-card>.sticker{position:absolute;top:-12px;left:clamp(28px,5vw,60px)}
+.rec-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:56px;align-items:center}
+.rec-text{container-type:inline-size}
+.rec-num{font-weight:900;font-size:clamp(54px,21cqi,150px);line-height:1;white-space:nowrap;font-variant-numeric:tabular-nums}
+.rec-l{font-weight:900;font-size:22px;color:var(--lilac);margin-top:8px}
+.rec-p{color:var(--muted);margin-top:14px;max-width:460px}
+.cmp+.cmp{margin-top:24px}
+.cmp-h{display:flex;justify-content:space-between;gap:12px;font-weight:800;margin-bottom:8px}
+.cmp-h span{color:var(--muted)}
+.cmp-bar{height:16px;border-radius:8px;background:rgba(255,255,255,.08);overflow:hidden}
+.cmp-bar i{display:block;height:100%;width:0;border-radius:8px;background:var(--lilac)}
+.cmp:first-child .cmp-bar i{background:var(--muted)}
+.cmp-note{color:var(--muted);margin-top:20px;font-size:15px;opacity:0;transform:translateY(10px);transition:.6s var(--ease)}
+.cmp-note b{color:var(--text)}
+.cmp-note.on{opacity:1;transform:none}
+
+/* ---------- разделы после истории ---------- */
+.sec{padding:16vh 0 4vh}
+.sec-h{max-width:720px;margin-bottom:44px}
+.sec-h h2{font-weight:900;font-size:clamp(34px,4.6vw,60px);line-height:1.08}
+.sec-h h2 em{font-style:normal;color:var(--lilac)}
+.sec-h p{color:var(--muted);margin-top:14px;font-size:18px}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:14px}
+.kpi{border-radius:22px;padding:24px 22px;container-type:inline-size}
+.kpi b{display:block;font-weight:900;font-size:clamp(20px,14cqi,46px);line-height:1.1;white-space:nowrap}
+.kpi span{color:var(--muted);font-size:15px}
+.charts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.chart{border-radius:22px;padding:26px}
+.chart.wide{grid-column:1/-1}
+.chart h3{font-weight:900;font-size:19px}
+.chart>p{color:var(--muted);font-size:15px;margin:2px 0 10px}
+.bars{display:flex;align-items:flex-end;gap:12px;height:230px;padding-top:30px}
+.bar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:8px}
+.col{position:relative;width:100%;max-width:56px;border-radius:10px 10px 4px 4px;background:rgba(196,178,255,.28);transform:scaleY(0);transform-origin:bottom;transition:transform 1.3s var(--spring) calc(var(--d,0s) + .4s)}
+.bar.hot .col{background:var(--lilac)}
+.chart.in .col{transform:scaleY(1)}
+.col em{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);margin-bottom:6px;font-weight:800;font-size:13px;font-style:normal;white-space:nowrap;opacity:0;transition:opacity .5s calc(var(--d,0s) + 1.3s)}
+.chart.in .col em{opacity:1}
+.bar span{font-weight:800;font-size:13px;color:var(--muted)}
+.line-chart svg{width:100%;height:auto;overflow:visible}
+.line-chart .path{fill:none;stroke:var(--lilac);stroke-width:3.5;stroke-linecap:round;stroke-dasharray:1400;stroke-dashoffset:1400;transition:stroke-dashoffset 2.4s var(--ease) .4s}
+.line-chart .area{fill:var(--lilac);opacity:0;transition:opacity 1.4s 1.6s}
+.chart.in .path{stroke-dashoffset:0}
+.chart.in .area{opacity:.1}
+.line-chart circle{fill:#120d1c;stroke:var(--lilac);stroke-width:3;opacity:0;transition:opacity .4s}
+.chart.in circle{opacity:1}
+.line-chart text{fill:var(--muted);font:700 13px var(--font)}
+.line-chart text.v{fill:var(--text);font:900 15px var(--font)}
+.artists-t{margin-top:64px;font-weight:800;color:var(--muted)}
+.marquee{overflow:hidden;margin-top:12px;-webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.mq{display:flex;width:max-content;will-change:transform}
+.mq span{font-weight:900;font-size:clamp(26px,3.4vw,44px);line-height:1.5;color:rgba(255,255,255,.16);padding-right:46px;white-space:nowrap;transition:color .3s}
+.mq span:nth-child(4n+2){color:rgba(196,178,255,.55)}
+.mq span:hover{color:var(--text)}
+.nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.num{border-radius:22px;padding:28px 22px 30px;container-type:inline-size}
+.num b{display:block;font-weight:900;font-size:clamp(26px,19cqi,64px);line-height:1;white-space:nowrap}
+.num b i{font-style:normal;color:var(--lilac)}
+.num span{display:block;color:var(--muted);margin-top:12px;line-height:1.4}
+.note{color:var(--dim);font-size:14px;margin-top:18px}
+
+/* ---------- распродажа ---------- */
+.sale{--tint:rgba(48,18,78,.46);display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:56px;align-items:center;padding:clamp(28px,5vw,64px);border-radius:32px}
+.sale h2{font-weight:900;font-size:clamp(40px,5.4vw,74px);line-height:1.04;margin:24px 0 18px}
+.sale h2 span{color:var(--lilac);white-space:nowrap}
+.sale-text>p{color:#d6cee8;max-width:520px}
+.prices{margin:26px 0 30px;border-top:1px solid rgba(255,255,255,.1)}
+.prices div{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.1);font-weight:700;opacity:0;transform:translateX(-24px);transition:opacity .6s var(--ease) calc(.6s + var(--i) * .12s),transform .8s var(--spring) calc(.6s + var(--i) * .12s)}
+.sale.in .prices div{opacity:1;transform:none}
+.prices b{font-weight:900;white-space:nowrap}
+.prices div:first-child b{color:var(--lilac)}
+.sale-btns{display:flex;gap:12px;flex-wrap:wrap}
+.sale-side img{width:100%;max-width:440px;height:auto;border-radius:22px;margin:0 auto;animation:float 7s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-12px) rotate(.8deg)}}
+.cd{display:flex;justify-content:center;gap:22px;margin-top:22px}
+.cd div{text-align:center;min-width:52px}
+.cd b{display:block;font-weight:900;font-size:34px;line-height:1;font-variant-numeric:tabular-nums}
+.cd span{font-size:13px;color:var(--muted);font-weight:700}
+.cd-t{text-align:center;color:var(--muted);font-size:14px;margin-top:6px}
+
+/* ---------- ссылки ---------- */
+.links{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.lk{display:flex;align-items:center;gap:14px;padding:16px;border-radius:20px;transition:transform .35s var(--spring) !important}
+.lk:hover{transform:translateY(-4px) scale(1.02) !important}
+.lk .ic{flex:none;width:46px;height:46px;border-radius:14px;background:var(--c);display:grid;place-items:center;color:#fff;font-weight:900;font-size:15px;box-shadow:inset 0 1px 0 rgba(255,255,255,.35)}
+.lk .ic svg{width:22px;height:22px;fill:#fff}
+.lk b{display:block;font-weight:800;font-size:16px;line-height:1.3}
+.lk small{display:block;color:var(--muted);font-size:14px;line-height:1.35}
+
+footer{padding:16vh 0 150px;text-align:center}
+footer h2{font-weight:900;font-size:clamp(36px,6vw,80px);line-height:1.08}
+footer p{color:var(--muted);margin-top:14px}
+
+/* ---------- мини-плеер ---------- */
+.mini{--tint:rgba(20,14,32,.5);position:fixed;left:50%;bottom:18px;transform:translate(-50%,170%);z-index:70;width:min(540px,calc(100% - 24px));display:flex;align-items:center;gap:12px;
+  padding:10px 12px 10px 10px;border-radius:999px;transition:transform .7s var(--spring)}
+.mini.show{transform:translate(-50%,0)}
+.mini .pbtn{width:42px;height:42px}
+.mini .x{flex:none;width:32px;height:32px;border-radius:50%;color:var(--muted);font-size:22px;line-height:1}
+.mini .x:hover{color:var(--text);background:rgba(255,255,255,.08)}
+
+@media (max-width:960px){
+  .ch-grid{grid-template-columns:minmax(0,1fr);gap:28px}
+  .ch-sticky{position:static}
+  .rec-grid,.sale{grid-template-columns:minmax(0,1fr)}
+  .rec-grid{gap:32px}
+  .charts{grid-template-columns:minmax(0,1fr)}
+  .kpis,.nums{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:600px){
+  body{font-size:16px}
+  .wrap{padding:0 16px}
+  .ch{padding-top:10vh}
+  .ch-events{padding-left:42px}
+  .wave,.wave canvas,.wv-lit{width:22px}
+  .wv-head{left:11px}
+  .ev::before{left:-38px}
+  .card{padding:20px}
+  .lg{--blur:14px}
+  .bub:nth-child(n+5){display:none}
+  .hero{align-items:flex-end;padding-bottom:104px}
+  .hero::after{background:linear-gradient(0deg,var(--bg) 10%,rgba(8,6,12,.78) 52%,rgba(8,6,12,.3) 100%)}
+  .hero-btns .btn{flex:1 1 100%}
+  .sale-btns .btn{flex:1 1 100%;white-space:normal;text-align:center;padding:12px 20px}
+  .gallery{--n:2!important}
+  .bars{gap:6px}
+  .col em{font-size:11px}
+  .cd{gap:12px}
+  .rec{height:200vh}
+  .isl-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv,.rvg,.rvg>*,.ev,.card>*,.tw,.media img,.gallery img,.facts li,.lead,.prices div,.card>.sticker,.h-in,.h-up{opacity:1!important;transform:none!important;clip-path:none!important}
+  .bubbles{display:none}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="lg-refract" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency="0.011 0.017" numOctaves="1" seed="5" result="t"/>
+    <feGaussianBlur in="t" stdDeviation="2.5" result="tb"/>
+    <feDisplacementMap in="SourceGraphic" in2="tb" scale="34" xChannelSelector="R" yChannelSelector="B"/>
+  </filter>
+</svg>
+<div class="amb" id="amb"><i></i><i></i><i></i></div>
+<div class="bubbles" id="bubbles"></div>
+
+<div class="island lg refr" id="island">
+  <button class="isl-row" id="islBtn" aria-label="Главы">
+    <span class="isl-ring"><svg viewBox="0 0 42 42"><circle class="bg" cx="21" cy="21" r="18"/><circle class="fg" id="islProg" cx="21" cy="21" r="18"/></svg><b id="islYear">10</b></span>
+    <span class="isl-t" id="islT"><small id="islN">Scame</small><span id="islTitle">Десять лет</span></span>
+    <svg class="isl-chev" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+  </button>
+  <div class="isl-menu"><div><nav class="isl-grid" id="islGrid"></nav></div></div>
+</div>
+
+<header class="hero" id="top">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="wrap hero-in" id="heroIn">
+    <div class="hero-date h-in">5 ноября 2016 — 5 ноября 2026</div>
+    <h1 class="hero-title h-in" style="animation-delay:.12s">scame<span class="sticker">10 лет</span></h1>
+    <p class="hero-sub h-in" style="animation-delay:.24s">От битмейкера-одиночки до проекта мечты</p>
+    <p class="hero-p h-in" style="animation-delay:.36s">Здесь вся история группы: от первых битов до команды Scame Project. Включите музыку и листайте вниз.</p>
+    <div class="hero-btns h-up" id="heroBtns">
+      <button class="btn lg refr btn-prime" id="heroMusic" data-src="audio/see_you_later.mp3" data-title="See You Later" data-artist="Scame · 2026">
+        <svg class="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+        <span>Включить музыку</span>
+      </button>
+      <a class="btn lg refr" href="#y2016">Читать историю</a>
+    </div>
+  </div>
+  <a class="hero-cue" href="#manifest"><i></i>листайте вниз</a>
+</header>
+
+<main>
+  <section class="manifest" id="manifest">
+    <div class="wrap manifest-in"><p id="manText"></p><div class="who" id="manWho">Тёма Гуржеев, основатель Scame</div></div>
+  </section>
+
+  <div id="chapters"></div>
+
+  <section class="sec" id="wall">
+    <div class="wrap">
+      <div class="sec-h rv"><h2 class="split">Стена группы <em>в цифрах</em></h2>
+        <p>Посчитано по постам, которые сейчас открыты на стене: с июня 2020 по октябрь 2026. Более ранние посты в архиве.</p></div>
+      <div class="kpis">
+        <div class="kpi lg rvg"><b data-count="1201">0</b><span>постов</span></div>
+        <div class="kpi lg rvg" style="--d:.08s"><b data-count="3579768">0</b><span>просмотров</span></div>
+        <div class="kpi lg rvg" style="--d:.16s"><b data-count="41823">0</b><span>лайков</span></div>
+        <div class="kpi lg rvg" style="--d:.24s"><b data-count="9832">0</b><span>комментариев</span></div>
+      </div>
+      <div class="charts">
+        <div class="chart lg rvg" id="chPosts"><h3>Постов в год</h3><p>Больше всего постов вышло в 2021 году</p><div class="bars"></div></div>
+        <div class="chart lg rvg" id="chViews" style="--d:.1s"><h3>Просмотров в год</h3><p>В 2023 году посты посмотрели 1,6 млн раз</p><div class="bars"></div></div>
+        <div class="chart wide line-chart lg rvg" id="chSubs"><h3>Подписчики группы</h3><p>От первого дня до сегодня</p><div id="subsSvg"></div></div>
+      </div>
+      <p class="artists-t rv">Артисты, которые выпускали треки на битах Scame</p>
+    </div>
+    <div class="marquee"><div class="mq" id="mq1"></div></div>
+    <div class="marquee"><div class="mq" id="mq2"></div></div>
+  </section>
+
+  <section class="sec" id="numbers">
+    <div class="wrap">
+      <div class="sec-h rv"><h2 class="split">Десять лет <em>работы</em></h2><p>Сколько всего мы сделали вместе с вами.</p></div>
+      <div class="nums" id="numsGrid"></div>
+      <p class="note">Цифры примерные.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="sale">
+    <div class="wrap">
+      <div class="sale lg rvg">
+        <div class="sale-text">
+          <span class="sticker">Финальная распродажа 2026</span>
+          <h2>Все биты<br>за <span>3&nbsp;000&nbsp;₽</span></h2>
+          <p>Отмечаем десять лет. Специальная цена действует до 2 декабря, а все лицензии позволяют выпускать треки на площадках без ограничений.</p>
+          <div class="prices">
+            <div style="--i:0"><span>Полные права</span><b>3 000 ₽</b></div>
+            <div style="--i:1"><span>Unlimited TrackOut</span><b>2 000 ₽</b></div>
+            <div style="--i:2"><span>Unlimited WAV + MP3</span><b>1 500 ₽</b></div>
+          </div>
+          <div class="sale-btns">
+            <a class="btn btn-vk" href="https://vk.me/scamemusic" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H8l-4 4V6a2 2 0 0 1 2-2z"/></svg>Написать в сообщения группы</a>
+            <a class="btn lg" href="https://vk.com/music/playlist/-132401980_82502378_169714b235f0ac7a81" target="_blank" rel="noopener">Слушать все биты</a>
+          </div>
+        </div>
+        <div class="sale-side">
+          <img src="img/p15448_0.jpg" width="900" height="900" alt="Финальная распродажа 2026">
+          <div class="cd" id="cd"><div><b>00</b><span>дней</span></div><div><b>00</b><span>часов</span></div><div><b>00</b><span>минут</span></div><div><b>00</b><span>секунд</span></div></div>
+          <div class="cd-t">до конца распродажи</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="links">
+    <div class="wrap">
+      <div class="sec-h rv"><h2 class="split">Мы <em>на связи</em></h2></div>
+      <div class="links" id="linksGrid"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <h2 class="rv split">Давайте создавать вместе 🍀</h2>
+    <p class="rv" style="--d:.15s">Scame · 2016 — 2026 · Спасибо, что вы с нами</p>
+  </div>
+</footer>
+
+<div class="mini lg refr" id="mini">
+  <button class="pbtn" id="miniBtn" aria-label="Пауза">
+    <svg class="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+  </button>
+  <div class="eq"><i></i><i></i><i></i><i></i></div>
+  <div class="pinfo"><b id="miniTitle">—</b><small id="miniArtist"></small><div class="pbar" id="miniBar"><i></i></div></div>
+  <span class="ptime" id="miniTime">0:00</span>
+  <button class="x" id="miniX" aria-label="Закрыть">×</button>
+</div>
+
+<script>
+/* ============ ТЕКСТЫ И ЦИФРЫ (можно править) ============ */
+const YEARS = [
+{y:'2016', to:'2019', title:'Начало', c:['#3a2a8f','#6a2a7a','#1b1640'], facts:['5 ноября 2016 — день рождения группы','С 2018 года нас двое'],
+ lead:'Группу создал один человек: битмейкер с ноутбуком и наушниками. Посты тех лет ушли в архив, поэтому здесь только главное.',
+ events:[
+  {date:'5 ноября 2016', title:'Появилась группа Scame', text:'Сначала это было просто увлечение: биты, ремиксы на любимые треки и первые покупатели.', img:'p1359_0.jpg'},
+  {date:'2016–2019', title:'Ремиксы и клипы', text:'Самые первые ремиксы и клипы позже вернутся в группу в рубрике #FlashBack.'},
+  {date:'2018', title:'Появляется маркетолог', text:'К проекту присоединяется Mike Satou. С этого момента Scame — команда.'},
+ ]},
+{y:'2020', title:'Разгон', c:['#5b2bd6','#a03fb0','#24124a'], facts:['153 поста за полгода','5 000 подписчиков в ноябре'],
+ lead:'Группа начинает выходить каждый день: конкурсы, скидки, статьи и новые площадки.',
+ events:[
+  {date:'Июнь', title:'Beat Pack Vol.4 и новые лицензии', text:'Обновили цены и типы лицензий, выпустили ремикс-пак на Макса Коржа и собрали плейлисты Sale и Remix.', img:'p1361_0.jpg'},
+  {date:'Июль', title:'Первый конкурс #scamecollab', text:'Конкурс для исполнителей: призовой фонд собирался из покупок подписчиков. Первое место занял OCTAPENKO.', img:'p1444_0.jpg'},
+  {date:'1 августа', title:'Yamaha HS5 в студии', text:'Купили мониторы и начали сводить и мастерить треки подписчиков.', img:'p1523_0.jpg'},
+  {date:'29 августа', title:'Scame на BeatStars', text:'Бит можно купить без переписки: после оплаты сайт сам отдаёт файлы и договор.', img:'p1610_0.jpg', link:'https://www.beatstars.com/scame', linkText:'Открыть BeatStars'},
+  {date:'Октябрь', title:'Статьи Re:Project и первый стрим', text:'Вышла первая статья о продвижении музыки. А ещё анонсировали стрим, где бит пишется в прямом эфире и в конце разыгрывается.'},
+  {mile:5000, label:'подписчиков', date:'1 ноября 2020', text:'В честь этого вышел бесплатный битпак «5000».', img:'p1873_0.jpg'},
+  {date:'Декабрь', title:'Курс по сведению и мастерингу', text:'Компрессия, эквализация, обработка вокала простым языком. Первый обучающий продукт Scame.'},
+ ]},
+{y:'2021', title:'Самый активный год', c:['#8a2be2','#e0499b','#2a0f3d'], facts:['269 постов, больше, чем в любой другой год','7 000 подписчиков в сентябре'],
+ lead:'Первый официальный трек, новые площадки, трек в плейлисте «Музыки ВКонтакте» и конкурс на 51 000 ₽.',
+ events:[
+  {date:'20 января', title:'Первый официальный трек «23»', quote:'«Время подняться и сделать карьеру»', text:'Трек вышел на всех площадках.', link:'https://vk.com/wall-132401980_2225', linkText:'Открыть пост'},
+  {date:'Февраль', title:'Больше 30 битов за месяц', text:'Самый продуктивный месяц начала года: продажи от Leasing WAV до Exclusive.', stat:'30+', statText:'битов продано'},
+  {date:'Весна', title:'YouTube-канал', text:'За подписку на канал дарим WAV, а среди комментаторов разыгрываем безлимитную аренду.', link:'https://www.youtube.com/channel/UCEYbL7mJQe4tK4tbq2h1K6w', linkText:'Канал на YouTube'},
+  {date:'13 июня', title:'BeatMaker TV', text:'Ещё одна площадка с автоматическими продажами и битами, которых больше нигде нет.', img:'p2930_0.jpg'},
+  {date:'14 августа', title:'NAYOMO — «Алло» в плейлисте ВК', sticker:'Музыка ВКонтакте', text:'Трек на бит Scame попал в плейлист «Русский хип-хоп» от «Музыки ВКонтакте».', img:'p3566_0.jpg', link:'https://vk.com/wall-132401980_3566', linkText:'Послушать во ВКонтакте'},
+  {date:'Август', title:'Биты за активность', text:'Самые активные подписчики получают биты бесплатно. Акция стала ежегодной.', stat:'15 055', statText:'просмотров'},
+  {mile:7000, label:'подписчиков', date:'Сентябрь 2021', text:'И первый бесплатный бит, который можно выпускать на площадки.'},
+  {date:'Ноябрь', title:'#scamecollab на 51 000 ₽', text:'Большой конкурс для исполнителей: деньги на карту, биты и сведение. Итоги подвели в феврале 2022.', stat:'51 000 ₽', statText:'призовой фонд'},
+  {date:'Декабрь', title:'Mike Satou пишет подписчикам', text:'Менеджер и маркетолог проекта впервые выходит к подписчикам от своего имени. Битпаки теперь выходят каждую неделю.'},
+ ]},
+{y:'2022', title:'Новые площадки', c:['#2b5bd6','#7d5ce8','#14204a'], facts:['Альбом и EP','8 000 подписчиков в августе'],
+ lead:'Telegram, Boosty, первый альбом и трек в «Выборе редакции».',
+ events:[
+  {date:'Февраль', title:'«Неоны» в «Выборе редакции»', sticker:'Выбор редакции', text:'Sally & Tabby — «Неоны» на бит Scame попал в плейлисты «Русские хиты», «Новинки» и «Выбор редакции».', img:'p5418_0.jpg', link:'https://vk.com/wall-132401980_5418', linkText:'Открыть пост'},
+  {date:'Февраль', title:'Оплата из любой страны', text:'Принимаем криптовалюту, банковские карты, ЮMoney и PayPal.', img:'p5489_0.jpg'},
+  {date:'7 марта', title:'Обновление и Telegram-канал', text:'Новый дизайн, программа лояльности, снижение цен и свой канал в Telegram.', img:'p5644_0.jpg', link:'https://t.me/byscame', linkText:'t.me/byscame'},
+  {date:'16 марта', title:'Don’t Stop The Music', text:'Программа поддержки исполнителей, битмейкеров и звукорежиссёров. Плюс подписка на Boosty с бонусами каждый месяц.', img:'p5713_0.jpg'},
+  {date:'8 апреля', title:'Альбом «Сказки на ночь»', text:'Scame выпускает свой первый альбом во VK Музыке.', img:'p5814_0.jpg'},
+  {date:'1 августа', title:'Support Pack', text:'Драм-киты, сэмплы, пресеты и курс бесплатно для всех, кто пишет музыку.', stat:'24 161', statText:'просмотр', img:'p6762_0.jpg'},
+  {mile:8000, label:'подписчиков', date:'22 августа 2022', text:'Спасибо, что вы с нами.', img:'p6865_0.jpg'},
+  {date:'21 сентября', title:'EP «True love»', quote:'«Зачем ты говорила о любви, зачем потом писала мне прости?»', img:'p6972_0.jpg'},
+  {date:'10 декабря', title:'Scame × Lxudname × vnk — «Мой выбор»', text:'Совместный трек, вышел на всех площадках.', img:'p7506_0.jpg', audio:{src:'audio/moy_vybor.mp3', title:'Мой выбор', artist:'Scame, Lxudname, vnk'}},
+ ]},
+{y:'2023', title:'Scame Project', c:['#9b6bff','#2fa3b8','#1d1347'], facts:['Свой сайт и Premium-канал','Команда битмейкеров'], record:true,
+ lead:'Свой сайт, закрытый канал для покупателей, команда битмейкеров и пост, который посмотрели почти миллион раз.',
+ events:[
+  {date:'4 января', title:'Свой сайт', text:'Бит можно выбрать, оплатить и сразу скачать вместе с договором из любой страны.', mock:true},
+  {date:'9 января', title:'Новый Telegram-канал', text:'Все биты с поиском по жанрам и материалы для битмейкеров и звукорежиссёров.', img:'p6855_0.jpg', link:'https://t.me/scamemusic', linkText:'t.me/scamemusic'},
+  {date:'Февраль', title:'Premium Scame', text:'Закрытый канал для покупателей: скидки, отдельные распродажи и розыгрыши.', img:'p7976_0.jpg'},
+  {date:'6 марта', title:'Первый вирусный пост', text:'Три подарка на выбор для всех, кто занимается музыкой.', stat:'298 991', statText:'просмотр', img:'p7857_0.jpg'},
+  {date:'15 марта', title:'Появляется Scame Project', text:'Команда битмейкеров, которая пишет в самых разных жанрах. Цель: из группы с битами вырасти в большой проект.', img:'p7907_0.jpg'},
+  {date:'18 сентября', title:'Scame — «Контроль»', text:'Сольный трек.', audio:{src:'audio/kontrol.mp3', title:'Контроль', artist:'Scame'}},
+ ]},
+{y:'2024', title:'Больше, чем биты', c:['#d65bd9','#4b2bd6','#26103f'], facts:['Коллабы, дизайн и тексты','8 лет проекту'],
+ lead:'Совместные биты, дизайн обложек, тексты на заказ, игры и викторины.',
+ events:[
+  {date:'Февраль', title:'Услуга «Коллаб»', text:'Совместный бит с командой Scame: опыт и сильная работа в портфолио битмейкера.', img:'p11103_0.jpg'},
+  {date:'28 февраля', title:'True love (Scame remix)', text:'Kanye West × XXXTentacion в новой аранжировке. Бит с ремикса продаётся.', audio:{src:'audio/true_love_remix.mp3', title:'True love (Scame remix)', artist:'Kanye West × XXXTentacion'}},
+  {date:'Апрель', title:'Мини-альбом с нейросетью', text:'Подписчики выбирали жанр, а исполняла нейросеть.'},
+  {date:'Июнь — июль', title:'Викторина и колесо фортуны', text:'«Beats & Dragons» из 10 вопросов и колесо фортуны, где подарок получал каждый.', gallery:['p12206_0.jpg','p12285_0.jpg']},
+  {date:'Сентябрь', title:'Дизайн и тексты на заказ', text:'В команду пришли дизайнер и сонграйтер. Теперь трек можно собрать целиком: бит, текст, сведение и обложка.', gallery:['p12465_0.jpg','p12465_1.jpg','p12465_2.jpg']},
+  {date:'6 ноября', title:'Scame — 8 лет', quote:'«Хоть и прошло столько времени, это лишь начало»', img:'p13121_0.jpg'},
+ ]},
+{y:'2025', title:'Трек в чартах', c:['#c2305a','#7d3be8','#2a0f2a'], facts:['Scame Project — 2 года','ПЛЭЯ — «Ведьма» в чартах'],
+ lead:'Команда выросла, а трек с нашим битом и сведением попал в топ-чарты.',
+ events:[
+  {date:'Январь', title:'Обложки от нашего дизайнера', text:'Готовые обложки для релизов.', gallery:['p13351_0.jpg','p13351_1.jpg']},
+  {date:'19 марта', title:'Scame Project — 2 года', text:'В команде битмейкеры, звукорежиссёр, дизайнер и сонграйтер. Битов стало в два раза больше.', img:'p13497_0.jpg'},
+  {date:'25 июня', title:'Scame Happy Pack', text:'Бит для коммерческого использования в подарок каждому подписчику.', stat:'23 847', statText:'просмотров', img:'p13918_0.jpg'},
+  {date:'Ноябрь', title:'ПЛЭЯ — «Ведьма»', sticker:'Топ-чарты', text:'Бит и сведение наши. Трек попал в топ-чарты площадок. Ниже можно сравнить запись до и после сведения.', audio:{src:'audio/vedma.mp3', title:'Ведьма', artist:'ПЛЭЯ · бит и сведение Scame'}, ab:true},
+  {date:'Декабрь', title:'Печенье с предсказанием', text:'Каждый день новое предсказание. Летом 2026 года акцию вернули.', img:'p14790_0.jpg'},
+ ]},
+{y:'2026', title:'Десять лет', c:['#b7a2ff','#ff5fa8','#2a1846'], facts:['Scame Project — 3 года','9 450 подписчиков'],
+ lead:'Биты с готовыми припевами, монтаж роликов и десятый день рождения.',
+ events:[
+  {date:'Февраль', title:'Биты с готовыми припевами', text:'Бит и хук сразу: остаётся записать куплеты.', img:'p14878_0.jpg'},
+  {date:'18 марта', title:'Scame Project — 3 года', text:'Команда, которая помогает создавать эмоции.', img:'p14967_0.jpg'},
+  {date:'Сентябрь', title:'Support Pack Lite 3', text:'Драм-киты, сэмплы, Voice Pack, гайд по продвижению и пресеты для сведения.', img:'p15293_0.jpg'},
+  {date:'18 октября', title:'Монтаж роликов', text:'Новая услуга: обложки, анимация и монтаж видео к релизу.'},
+  {date:'Новый бит', title:'Scame — «See You Later»', text:'Один из свежих битов 2026 года.', audio:{src:'audio/see_you_later.mp3', title:'See You Later', artist:'Scame · 2026'}},
+  {final:true, date:'5 ноября 2026', title:'Scame — 10 лет', text:'Десять лет назад это было увлечение. Сегодня это команда, сотни артистов и тысячи битов. Спасибо, что вы с нами.'},
+ ]},
+];
+
+/* Примерные цифры — замените на свои */
+const NUMS = [
+  {n:2000, s:'+', t:'битов написано за 10 лет'},
+  {n:1500, s:'+', t:'готовых битов продано'},
+  {n:400,  s:'+', t:'битов на заказ'},
+  {n:700,  s:'+', t:'треков сведено'},
+  {n:150,  s:'+', t:'ремиксов'},
+  {n:150,  s:'+', t:'треков артистов на наших битах'},
+  {n:200,  s:'+', t:'розыгрышей и конкурсов'},
+  {n:9450, s:'',  t:'подписчиков во ВКонтакте'},
+];
+
+const POSTS = [[2020,153],[2021,269],[2022,174],[2023,159],[2024,157],[2025,157],[2026,132]];
+const VIEWS = [[2020,173185],[2021,391090],[2022,444261],[2023,1612876],[2024,382273],[2025,367193],[2026,208890]];
+const SUBS  = [[2016.85,0,'старт'],[2020.84,5000,'5 000'],[2021.7,7000,'7 000'],[2022.64,8000,'8 000'],[2026.82,9450,'9 450']];
+const ARTISTS = ['OCTAPENKO','NAYOMO','Sally & Tabby','ПЛЭЯ','MAKAROV','LOUDNAME','Kristi XO','REZVAYA','ANNADI','FORTY 4','УмРо','ЛАМПА','Onebekker','K.B.A','KIRILOV','EGICH','Rurouni Kenshin','zeus','Lxudname','vnk','Dannilea','Look at the ROOT','VizaGangBeatz','тригги','SanTilla','Meleshenko','Bandum','Camila','HolyBad','Senator','Toxi$'];
+const LINKS = [
+  {n:'ВКонтакте', d:'Группа Scame', u:'https://vk.com/scamemusic', c:'#0077ff', i:'VK'},
+  {n:'Сообщения группы', d:'Купить бит или задать вопрос', u:'https://vk.me/scamemusic', c:'#2787f5', i:'chat'},
+  {n:'Telegram', d:'Новости и эксклюзив', u:'https://t.me/byscame', c:'#2aabee', i:'tg'},
+  {n:'Telegram · биты', d:'Все биты в хорошем качестве', u:'https://t.me/scamemusic', c:'#229ed9', i:'tg'},
+  {n:'Бот Scame Project', d:'@scame_project_bot', u:'https://t.me/scame_project_bot', c:'#7d5ce8', i:'bot'},
+  {n:'BeatStars', d:'Покупка битов онлайн', u:'https://www.beatstars.com/scame', c:'#e5262c', i:'star'},
+  {n:'YouTube', d:'Биты и разборы', u:'https://www.youtube.com/channel/UCEYbL7mJQe4tK4tbq2h1K6w', c:'#ff0033', i:'yt'},
+  {n:'Instagram', d:'@scamemusic', u:'https://www.instagram.com/scamemusic/', c:'#d6249f', i:'ig'},
+  {n:'Яндекс Музыка', d:'Треки под наши биты', u:'https://music.yandex.ru/users/scame.music/playlists/1000', c:'#e8a800', i:'note'},
+  {n:'Taplink', d:'Все ссылки в одном месте', u:'https://taplink.cc/scame.music', c:'#6d4bd6', i:'link'},
+  {n:'Почта', d:'scamemusic@gmail.com', u:'mailto:scamemusic@gmail.com', c:'#8b6fe0', i:'mail'},
+];
+const MANIFEST = 'Когда я создавал группу в 2016 году, я даже не мог представить, что моё увлечение музыкой выльется в это. Маленькими шагами, сквозь ошибки мы пришли к этой точке. Вместе с вами.';
+const HL = ['2016','увлечение','музыкой','Маленькими','шагами,','Вместе','с','вами.'];
+const SALE_END = new Date('2026-12-02T23:59:59+03:00');
+const THEME = {top:['#2a1846','#3b2a8f','#1a1030'], manifest:['#3b1d6e','#2a1846','#1a1030'], record:['#e052d6','#7d2bd6','#2a0f3d'],
+  wall:['#4b2bbf','#2a1846','#16102a'], numbers:['#7d5ce8','#3b2a8f','#16102a'], sale:['#dd5ce0','#7d5ce8','#2a0f3d'], links:['#3b2a8f','#2a1846','#120d1f']};
+const BUBBLES = [
+  {x:5, y:18, s:150, sp:.16, t:11, bx:'14px', by:'-22px'}, {x:86, y:10, s:96, sp:.3, t:9, bx:'-12px', by:'18px'},
+  {x:80, y:62, s:210, sp:.1, t:14, bx:'10px', by:'-16px'}, {x:16, y:76, s:72, sp:.42, t:8, bx:'-10px', by:'-14px'},
+  {x:50, y:92, s:118, sp:.24, t:10, bx:'16px', by:'12px'}, {x:38, y:36, s:46, sp:.55, t:7, bx:'8px', by:'-20px'},
+  {x:94, y:86, s:58, sp:.38, t:9, bx:'-8px', by:'-12px'}];
+const IMG = {"avatar.jpg":[240,240],"p1359_0.jpg":[484,264],"p1361_0.jpg":[900,900],"p1444_0.jpg":[900,900],"p1523_0.jpg":[800,800],"p1610_0.jpg":[900,900],"p1873_0.jpg":[900,900],"p2930_0.jpg":[900,900],"p3566_0.jpg":[900,900],"p5418_0.jpg":[506,900],"p5489_0.jpg":[900,900],"p5644_0.jpg":[900,900],"p5713_0.jpg":[900,900],"p5814_0.jpg":[900,900],"p6762_0.jpg":[900,900],"p6865_0.jpg":[900,900],"p6972_0.jpg":[900,900],"p7506_0.jpg":[900,900],"p6855_0.jpg":[900,900],"p7976_0.jpg":[900,900],"p7857_0.jpg":[900,900],"p7907_0.jpg":[900,900],"p11103_0.jpg":[900,900],"p12206_0.jpg":[900,900],"p12285_0.jpg":[900,829],"p12465_0.jpg":[900,900],"p12465_1.jpg":[900,900],"p12465_2.jpg":[900,900],"p13121_0.jpg":[900,900],"p13351_0.jpg":[900,900],"p13351_1.jpg":[900,900],"p13497_0.jpg":[900,900],"p13918_0.jpg":[900,900],"p14790_0.jpg":[900,900],"p14878_0.jpg":[900,900],"p14967_0.jpg":[720,900],"p15293_0.jpg":[900,900]};
+
+/* ============ СБОРКА СТРАНИЦЫ ============ */
+const fmt = n => n.toLocaleString('ru-RU');
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+const SVG = {
+  play:'<svg class="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>',
+  tg:'<svg viewBox="0 0 24 24"><path d="M21.5 4.2 2.9 11.4c-1 .4-1 1.6.1 1.9l4.6 1.4 1.8 5.6c.3.8 1.3 1 1.9.4l2.6-2.5 4.7 3.5c.7.5 1.7.1 1.9-.8L23 5.6c.2-1-.7-1.8-1.5-1.4zM9.6 14.2l8.6-6.6-6.9 7.6-.3 3.1-1.4-4.1z"/></svg>',
+  yt:'<svg viewBox="0 0 24 24"><path d="M9 7.5v9l7.5-4.5z"/></svg>',
+  ig:'<svg viewBox="0 0 24 24"><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm0 2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm5 3.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7zm0 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM17.3 5.6a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2z"/></svg>',
+  star:'<svg viewBox="0 0 24 24"><path d="m12 2.5 2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>',
+  note:'<svg viewBox="0 0 24 24"><path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/></svg>',
+  link:'<svg viewBox="0 0 24 24"><path d="M10.6 13.4a1 1 0 0 1 0-1.4l3-3a1 1 0 1 1 1.4 1.4l-3 3a1 1 0 0 1-1.4 0zM8.5 19.5a4.2 4.2 0 0 1-3-7.2l2.1-2.1a1 1 0 0 1 1.4 1.4l-2.1 2.1a2.2 2.2 0 0 0 3.1 3.1l2.1-2.1a1 1 0 0 1 1.4 1.4l-2.1 2.1a4.2 4.2 0 0 1-2.9 1.3zm7.5-5.2a1 1 0 0 1-.7-1.7l2.1-2.1a2.2 2.2 0 0 0-3.1-3.1l-2.1 2.1a1 1 0 0 1-1.4-1.4l2.1-2.1a4.2 4.2 0 0 1 5.9 5.9l-2.1 2.1a1 1 0 0 1-.7.3z"/></svg>',
+  mail:'<svg viewBox="0 0 24 24"><path d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zm0 2v.4l8 5.1 8-5.1V7zm16 2.8-7.5 4.8a1 1 0 0 1-1 0L4 9.8V17h16z"/></svg>',
+  chat:'<svg viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H8l-4 4V6a2 2 0 0 1 2-2z"/></svg>',
+  bot:'<svg viewBox="0 0 24 24"><path d="M11 2h2v3h4a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3h4zM9 10.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm6 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM8 16v1.5h8V16zM1 10h2v5H1zm20 0h2v5h-2z"/></svg>',
+};
+
+/* картинка целиком, в своих пропорциях, по центру; не выше maxH */
+function media(n, maxH = 460){
+  const [w, h] = IMG[n], dw = Math.min(w, Math.round(maxH * w / h));
+  return `<figure class="media"><img src="img/${n}" width="${w}" height="${h}" style="width:${dw}px" alt=""></figure>`;
+}
+const gallery = g => `<div class="gallery" style="--n:${g.length}">${g.map(n => `<img src="img/${n}" width="${IMG[n][0]}" height="${IMG[n][1]}" alt="">`).join('')}</div>`;
+const player = a => `<div class="player" data-src="${a.src}" data-title="${a.title}" data-artist="${a.artist}">
+  <button class="pbtn" aria-label="Слушать">${SVG.play}</button>
+  <div class="pinfo"><b>${a.title}</b><small>${a.artist}</small><div class="pbar"><i></i></div></div>
+  <div class="eq"><i></i><i></i><i></i><i></i></div><span class="ptime">0:00</span></div>`;
+const AB = `<div class="ab"><div class="ab-h">До и после сведения</div><div class="ab-row">
+  <button class="pbtn" id="abBtn" aria-label="Слушать сравнение">${SVG.play}</button>
+  <div class="seg posle" id="abSeg"><i></i><button data-v="do">До</button><button data-v="posle" class="on">После</button></div></div>
+  <small>Включите и переключайте «До» и «После» прямо во время звучания.</small></div>`;
+const MOCK = `<div class="mock"><div class="mock-bar"><i></i><i></i><i></i><span>scamemusic.com</span></div>
+  <div class="mock-grid"><div><b>Trap</b><em>Купить</em></div><div><b>R&amp;B</b><em>Купить</em></div><div><b>Lyric</b><em>Купить</em></div></div></div>`;
+
+function evHTML(e){
+  if (e.mile) return `<article class="ev mile"><div class="card lg"><div class="date">${e.date}</div>
+    <div class="mile-num" data-count="${e.mile}">0</div><div class="mile-lbl">${e.label}</div>
+    ${e.text ? `<p>${e.text}</p>` : ''}${e.img ? media(e.img, 260) : ''}</div></article>`;
+  let h = `<article class="ev${e.final ? ' final' : ''}"><div class="card lg">`;
+  if (e.sticker) h += `<span class="sticker">${e.sticker}</span>`;
+  if (e.final) h += `<img class="avatar" src="img/avatar.jpg" width="240" height="240" alt="">`;
+  h += `<div class="date">${e.date}</div><h3>${e.title}</h3>`;
+  if (e.quote) h += `<p class="q">${e.quote}</p>`;
+  if (e.text) h += `<p>${e.text}</p>`;
+  if (e.stat){ const m = e.stat.match(/^([\d\s]*\d)(.*)$/);
+    h += `<div class="stat"><b data-count="${m[1].replace(/\s/g,'')}" data-suffix="${m[2]}">${e.stat}</b><span>${e.statText || ''}</span></div>`; }
+  if (e.img) h += media(e.img);
+  if (e.gallery) h += gallery(e.gallery);
+  if (e.mock) h += MOCK;
+  if (e.audio) h += player(e.audio);
+  if (e.ab) h += AB;
+  if (e.link) h += `<a class="more" href="${e.link}" target="_blank" rel="noopener">${e.linkText}</a>`;
+  return h + `</div></article>`;
+}
+/* цифры года прокручиваются, как счётчик */
+function yearHTML(to, from){
+  const t = String(to).split(''), f = String(from).split('');
+  return t.map((d, i) => `<span class="slot${i < 2 ? ' dim' : ''}" aria-hidden="true"><span class="strip" data-to="${d}" style="transform:translateY(${-f[i] * 1.1}em)">${
+    '0123456789'.split('').map(x => `<span>${x}</span>`).join('')}</span></span>`).join('');
+}
+const RECORD = `<section class="rec" id="record"><div class="rec-sticky"><div class="wrap" style="width:100%">
+  <div class="rec-card lg" id="recCard"><span class="sticker">Рекорд группы</span><div class="rec-grid">
+    <div class="rec-text"><div class="rec-num" id="recNum">0</div><p class="rec-l">просмотров у одного поста</p>
+      <p class="rec-p">«Don’t Stop The Music!», 11 декабря 2023 года. Три подарка на выбор: скидка, бит для коммерческого использования или Support Pack.</p></div>
+    <div class="rec-cmp">
+      <div class="cmp"><div class="cmp-h"><span>Обычный пост</span><b>≈ 3 000</b></div><div class="cmp-bar"><i id="recA"></i></div></div>
+      <div class="cmp"><div class="cmp-h"><span>Рекордный пост</span><b>911 506</b></div><div class="cmp-bar"><i id="recB"></i></div></div>
+      <p class="cmp-note" id="recNote">Это примерно <b>в 300 раз</b> больше, чем у обычного поста группы.</p></div>
+  </div></div></div></div></section>`;
+
+let html = '';
+const SECTIONS = [{id:'manifest', badge:'10', n:'Scame', t:'Слово основателя'}];
+YEARS.forEach((Y, i) => {
+  const from = i ? YEARS[i - 1].y : '2000';
+  THEME['y' + Y.y] = Y.c;
+  SECTIONS.push({id:'y' + Y.y, badge:Y.y, n:`Глава ${i + 1} из ${YEARS.length}`, t:Y.title, m:Y.to ? `${Y.y}–${Y.to.slice(2)}` : Y.y});
+  html += `<section class="ch" id="y${Y.y}" data-year="${Y.y}"><div class="wrap ch-grid">
+    <header class="ch-side"><div class="ch-sticky">
+      <div class="ch-n">Глава ${i + 1} из ${YEARS.length}</div>
+      <div class="yr" role="img" aria-label="${Y.y}">${yearHTML(Y.y, from)}</div>
+      ${Y.to ? `<div class="yr-to">по ${Y.to}</div>` : ''}
+      <h2 class="split">${Y.title}</h2><p class="lead">${Y.lead}</p>
+      <ul class="facts">${Y.facts.map((f, k) => `<li style="--i:${k}">${f}</li>`).join('')}</ul>
+    </div></header>
+    <div class="ch-events"><div class="wave"><canvas class="wv-dim"></canvas><div class="wv-lit"><canvas></canvas></div><span class="wv-head"></span></div>${Y.events.map(evHTML).join('')}</div>
+  </div></section>`;
+  if (Y.record){ html += RECORD; SECTIONS.push({id:'record', badge:'911K', n:'Глава 5 · рекорд', t:'Пост на 911 506 просмотров'}); }
+});
+document.getElementById('chapters').innerHTML = html;
+SECTIONS.push({id:'wall', badge:'∑', n:'Инфографика', t:'Стена в цифрах', m:'Цифры'}, {id:'numbers', badge:'10', n:'Итоги', t:'Десять лет работы', m:'Итоги'},
+  {id:'sale', badge:'₽', n:'Распродажа', t:'Все биты за 3 000 ₽', m:'Скидки'}, {id:'links', badge:'@', n:'Ссылки', t:'Мы на связи', m:'Ссылки'});
+document.getElementById('islGrid').innerHTML = SECTIONS.filter(s => s.m).map(s => `<a href="#${s.id}" data-t="${s.id}">${s.m}</a>`).join('');
+
+document.getElementById('manText').innerHTML = MANIFEST.split(' ').map(w => `<span class="w${HL.includes(w) ? ' hl' : ''}">${w}</span>`).join(' ');
+
+/* слова заголовков появляются по одному */
+document.querySelectorAll('.split').forEach(el => {
+  let i = 0;
+  const walk = node => [...node.childNodes].forEach(n => {
+    if (n.nodeType === 3){
+      const frag = document.createDocumentFragment();
+      n.textContent.split(/(\s+)/).forEach(p => {
+        if (!p) return;
+        if (/^\s+$/.test(p)) frag.appendChild(document.createTextNode(p));
+        else { const s = document.createElement('span'); s.className = 'tw'; s.style.setProperty('--i', i++); s.textContent = p; frag.appendChild(s); }
+      });
+      n.replaceWith(frag);
+    } else if (n.nodeType === 1) walk(n);
+  });
+  walk(el);
+});
+document.querySelectorAll('.card').forEach(c => [...c.children].forEach((ch, i) => ch.style.setProperty('--i', i)));
+
+function bars(id, data, hot, label = fmt){
+  const max = Math.max(...data.map(d => d[1]));
+  document.querySelector(`#${id} .bars`).innerHTML = data.map(([y, v], i) =>
+    `<div class="bar${y === hot ? ' hot' : ''}"><div class="col" style="height:${Math.max(3, v / max * 100)}%;--d:${i * .08}s"><em>${label(v)}</em></div><span>${y}</span></div>`).join('');
+}
+bars('chPosts', POSTS, 2021);
+bars('chViews', VIEWS, 2023, v => v >= 1e6 ? (v / 1e6).toFixed(1).replace('.', ',') + ' млн' : Math.round(v / 1000) + ' тыс');
+(function(){
+  const W = 1000, H = 300, p = 44, x0 = 2016.5, x1 = 2027.1;
+  const X = x => p + (x - x0) / (x1 - x0) * (W - 2 * p), Y = v => H - p - (v / 10000) * (H - 2 * p);
+  const pts = SUBS.map(([x, v]) => [X(x), Y(v)]);
+  let d = `M${pts[0][0]},${pts[0][1]}`;
+  for (let i = 1; i < pts.length; i++){ const [a, b] = pts[i - 1], [c, e] = pts[i], m = (a + c) / 2; d += ` C${m},${b} ${m},${e} ${c},${e}`; }
+  const area = `${d} L${pts.at(-1)[0]},${H - p} L${pts[0][0]},${H - p} Z`;
+  let years = ''; for (let y = 2017; y <= 2026; y++) years += `<text x="${X(y)}" y="${H - 12}" text-anchor="middle">${y}</text>`;
+  const dots = SUBS.map(([x, v, l], i) => `<circle cx="${X(x)}" cy="${Y(v)}" r="7" style="transition-delay:${.8 + i * .45}s"/><text class="v" x="${X(x)}" y="${Y(v) - 18}" text-anchor="middle">${l}</text>`).join('');
+  document.getElementById('subsSvg').innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Рост подписчиков">
+    <line x1="${p}" x2="${W - p}" y1="${H - p}" y2="${H - p}" stroke="rgba(255,255,255,.1)"/>
+    <path class="area" d="${area}"/><path class="path" d="${d}"/>${dots}${years}</svg>`;
+})();
+
+const half = Math.ceil(ARTISTS.length / 2), mqHTML = a => a.map(x => `<span>${x}</span>`).join('').repeat(2);
+document.getElementById('mq1').innerHTML = mqHTML(ARTISTS.slice(0, half));
+document.getElementById('mq2').innerHTML = mqHTML(ARTISTS.slice(half));
+document.getElementById('numsGrid').innerHTML = NUMS.map((n, i) =>
+  `<div class="num lg rvg" style="--d:${(i % 4) * .08}s"><b data-count="${n.n}" data-suffix="${n.s}">0</b><span>${n.t}</span></div>`).join('');
+document.getElementById('linksGrid').innerHTML = LINKS.map((l, i) =>
+  `<a class="lk lg rvg" style="--c:${l.c};--d:${(i % 4) * .06}s" href="${l.u}" target="_blank" rel="noopener"><span class="ic">${l.i === 'VK' ? 'VK' : SVG[l.i]}</span><span><b>${l.n}</b><small>${l.d}</small></span></a>`).join('');
+document.getElementById('bubbles').innerHTML = BUBBLES.map(b =>
+  `<div class="bub" style="left:${b.x}vw;--s:${b.s}px"><i style="--t:${b.t}s;--bx:${b.bx};--by:${b.by}"></i></div>`).join('');
+
+/* ============ АНИМАЦИИ ============ */
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+function countUp(el){
+  if (el.dataset.done) return; el.dataset.done = 1;
+  const target = +el.dataset.count, suf = el.dataset.suffix || '';
+  const show = v => el.innerHTML = fmt(v) + (suf ? `<i>${suf}</i>` : '');
+  if (reduce){ show(target); return; }
+  const t0 = performance.now(), dur = target > 100000 ? 2400 : 1700;
+  const step = t => { const k = Math.min(1, (t - t0) / dur); show(k < 1 ? Math.round(target * (1 - Math.pow(2, -10 * k))) : target); if (k < 1) requestAnimationFrame(step); };
+  setTimeout(() => requestAnimationFrame(step), 250);
+}
+function roll(el){
+  el.querySelectorAll('.strip').forEach((s, i) => { s.style.transitionDelay = (i * .1) + 's'; s.style.transform = `translateY(${-s.dataset.to * 1.1}em)`; });
+}
+const io = new IntersectionObserver(es => es.forEach(en => {
+  if (!en.isIntersecting) return;
+  const el = en.target; el.classList.add('in');
+  el.querySelectorAll('[data-count]').forEach(countUp);
+  if (el.dataset.count) countUp(el);
+  if (el.classList.contains('ch-sticky')) roll(el);
+  io.unobserve(el);
+}), {threshold: .15, rootMargin: '0px 0px -6% 0px'});
+document.querySelectorAll('.ev, .rv, .rvg, .ch-sticky').forEach(el => io.observe(el));
+
+/* блик на стекле: следует за прокруткой и за мышью */
+const visGlass = new Set();
+const gio = new IntersectionObserver(es => es.forEach(en => en.isIntersecting ? visGlass.add(en.target) : visGlass.delete(en.target)));
+document.querySelectorAll('main .lg').forEach(el => gio.observe(el));
+let lastG = null;
+addEventListener('pointermove', e => {
+  const g = e.target.closest ? e.target.closest('.lg') : null;
+  if (lastG && lastG !== g){ lastG.style.removeProperty('--mx'); lastG.style.removeProperty('--my'); }
+  if (g){ const r = g.getBoundingClientRect(); g.style.setProperty('--mx', (e.clientX - r.left) + 'px'); g.style.setProperty('--my', (e.clientY - r.top) + 'px'); }
+  lastG = g;
+}, {passive: true});
+
+/* дорожка-волна вдоль событий: заполняется, пока листаете */
+function rng(seed){ let s = seed % 2147483647 || 1; return () => (s = s * 16807 % 2147483647) / 2147483647; }
+function drawWave(sec){
+  const box = sec.querySelector('.wave'), H = Math.round(box.clientHeight), W = box.clientWidth || 28, dpr = Math.min(2, devicePixelRatio || 1);
+  if (!H) return;
+  const r = rng(+sec.dataset.year * 97), seed = r() * 6, lens = [];
+  for (let y = 6, k = 0; y < H - 6; y += 6, k++){
+    const env = .3 + .7 * Math.abs(Math.sin(k / 8 + seed)) * (.65 + .35 * Math.sin(k / 21 + seed * 2));
+    lens.push([y, 3 + env * (W - 6) * (.45 + .55 * r())]);
+  }
+  const paint = (cv, fill) => {
+    cv.width = W * dpr; cv.height = H * dpr; cv.style.height = H + 'px';
+    const c = cv.getContext('2d'); c.scale(dpr, dpr); c.fillStyle = fill(c);
+    lens.forEach(([y, l]) => { c.beginPath(); c.roundRect ? c.roundRect(W / 2 - l / 2, y, l, 2.6, 1.3) : c.rect(W / 2 - l / 2, y, l, 2.6); c.fill(); });
+  };
+  paint(box.querySelector('.wv-dim'), () => 'rgba(255,255,255,.10)');
+  paint(box.querySelector('.wv-lit canvas'), c => { const g = c.createLinearGradient(0, 0, 0, H); g.addColorStop(0, '#c4b2ff'); g.addColorStop(1, '#ff7ac8'); return g; });
+}
+const chs = [...document.querySelectorAll('.ch')];
+const ro = new ResizeObserver(es => es.forEach(en => drawWave(en.target.closest('.ch'))));
+chs.forEach(sec => ro.observe(sec.querySelector('.ch-events')));
+
+/* бегущая строка артистов: быстрее и с наклоном, когда листаете */
+const rows = [...document.querySelectorAll('.mq')].map((el, i) => ({el, dir: i ? 1 : -1, x: 0, w: 0}));
+let mqVisible = false, vel = 0, lastY = scrollY;
+const mqIo = new IntersectionObserver(es => es.forEach(en => mqVisible = en.isIntersecting));
+mqIo.observe(document.querySelector('.marquee'));
+function measureMq(){ rows.forEach(r => { r.w = r.el.scrollWidth / 2; if (r.dir > 0 && !r.x) r.x = -r.w; }); }
+(function loop(){
+  const dy = scrollY - lastY; lastY = scrollY; vel += (dy - vel) * .12;
+  if (mqVisible && !reduce){
+    const skew = clamp(-vel * .3, -10, 10);
+    rows.forEach(r => {
+      if (!r.w) measureMq();
+      r.x += r.dir * (.7 + Math.min(14, Math.abs(vel) * .4));
+      if (r.x <= -r.w) r.x += r.w; if (r.x > 0) r.x -= r.w;
+      r.el.style.transform = `translate3d(${r.x}px,0,0) skewX(${skew}deg)`;
+    });
+  }
+  requestAnimationFrame(loop);
+})();
+addEventListener('resize', measureMq);
+
+/* прокрутка: первый экран, цитата, волны, рекорд, островок, цвет фона, пузыри */
+const heroBg = document.getElementById('heroBg'), heroIn = document.getElementById('heroIn'), heroBtns = document.getElementById('heroBtns');
+const man = document.getElementById('manifest'), words = [...document.querySelectorAll('.manifest .w')], who = document.getElementById('manWho');
+const rec = document.getElementById('record'), recCard = document.getElementById('recCard'), recNum = document.getElementById('recNum');
+const recA = document.getElementById('recA'), recB = document.getElementById('recB'), recNote = document.getElementById('recNote');
+const island = document.getElementById('island'), islProg = document.getElementById('islProg'), islT = document.getElementById('islT');
+const islGridLinks = [...document.querySelectorAll('#islGrid a')];
+const amb = document.getElementById('amb'), bubs = [...document.querySelectorAll('.bub')];
+const secEls = SECTIONS.map(s => document.getElementById(s.id));
+let ticking = false, activeId = '';
+function setTheme(id){
+  const c = THEME[id] || THEME.top;
+  amb.style.setProperty('--a1', c[0]); amb.style.setProperty('--a2', c[1]); amb.style.setProperty('--a3', c[2]);
+}
+function onScroll(){
+  ticking = false;
+  const sy = scrollY, vh = innerHeight, docH = document.documentElement.scrollHeight - vh, pr = clamp(sy / docH, 0, 1);
+  islProg.style.strokeDashoffset = 113.1 * (1 - pr);
+  island.style.setProperty('--gy', pr);
+  if (!reduce && sy < vh * 1.3){
+    const k = sy / vh;
+    heroBg.style.transform = `translate3d(0,${sy * .25}px,0) scale(${1 + k * .25})`;
+    heroIn.style.transform = `translate3d(0,${-sy * .12}px,0)`;
+    heroIn.style.setProperty('--ho', Math.max(0, 1 - k * 1.5));
+    heroBtns.style.transform = `translate3d(0,${-sy * .1}px,0) scale(${Math.max(.85, 1 - k * .15)})`;
+  }
+  const mr = man.getBoundingClientRect();
+  const mp = clamp((-mr.top + vh * .2) / (mr.height - vh * .8), 0, 1), lit = Math.floor(mp * words.length * 1.04);
+  words.forEach((w, i) => w.classList.toggle('on', i < lit));
+  who.classList.toggle('on', lit >= words.length);
+  chs.forEach(sec => {
+    const r = sec.getBoundingClientRect();
+    if (r.bottom < -100 || r.top > vh + 100) return;
+    const ev = sec.querySelector('.ch-events'), er = ev.getBoundingClientRect();
+    const fill = clamp(vh * .55 - er.top, 0, er.height);
+    sec.querySelector('.wv-lit').style.height = fill + 'px';
+    sec.querySelector('.wv-head').style.top = fill + 'px';
+    ev.classList.toggle('playing', fill > 0 && fill < er.height);
+  });
+  const rr = rec.getBoundingClientRect();
+  if (rr.top < vh && rr.bottom > 0){
+    const p = clamp(-rr.top / (rr.height - vh), 0, 1), e = 1 - Math.pow(1 - p, 3);
+    recNum.textContent = fmt(Math.round(911506 * e));
+    recA.style.width = e ? `max(${(.33 * e).toFixed(3)}%, 6px)` : '0';
+    recB.style.width = (100 * e) + '%';
+    recNote.classList.toggle('on', p > .9);
+    const enter = clamp((vh - rr.top) / vh, 0, 1);
+    recCard.style.transform = reduce ? '' : `scale(${.88 + .12 * enter}) rotate(${(1 - enter) * -2}deg)`;
+  }
+  visGlass.forEach(el => { const r = el.getBoundingClientRect(); el.style.setProperty('--gy', ((vh - r.top) / (vh + r.height)).toFixed(3)); });
+  if (!reduce) bubs.forEach((b, i) => {
+    const B = BUBBLES[i], range = vh + B.s * 2;
+    const y = (((B.y / 100) * vh - sy * B.sp) % range + range) % range - B.s;
+    b.style.transform = `translate3d(0,${y}px,0)`;
+  });
+  island.classList.toggle('show', sy > vh * .75);
+  let act = 0; secEls.forEach((el, i) => { if (el && el.getBoundingClientRect().top < vh * .45) act = i; });
+  const S = sy > vh * .75 ? SECTIONS[act] : null, id = S ? S.id : 'top';
+  if (id !== activeId){
+    activeId = id; setTheme(id);
+    if (S){
+      document.getElementById('islYear').textContent = S.badge;
+      document.getElementById('islN').textContent = S.n;
+      document.getElementById('islTitle').textContent = S.t;
+      islT.classList.remove('swap'); void islT.offsetWidth; islT.classList.add('swap');
+      island.classList.remove('pulse'); void island.offsetWidth; island.classList.add('pulse');
+      islGridLinks.forEach(a => a.classList.toggle('on', a.dataset.t === id || (id === 'record' && a.dataset.t === 'y2023')));
+    }
+  }
+}
+addEventListener('scroll', () => { if (!ticking){ ticking = true; requestAnimationFrame(onScroll); } }, {passive: true});
+addEventListener('resize', onScroll);
+setTheme('top'); onScroll();
+
+document.getElementById('islBtn').addEventListener('click', () => island.classList.toggle('open'));
+document.getElementById('islGrid').addEventListener('click', e => { if (e.target.closest('a')) island.classList.remove('open'); });
+document.addEventListener('click', e => { if (!island.contains(e.target)) island.classList.remove('open'); });
+
+/* ============ МУЗЫКА ============ */
+const audios = {}; let cur = null;
+const mini = document.getElementById('mini'), heroBtn = document.getElementById('heroMusic');
+const fmtT = s => isFinite(s) ? `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}` : '0:00';
+function getAudio(src){
+  if (audios[src]) return audios[src];
+  const a = new Audio(src); a.preload = 'none'; audios[src] = a;
+  ['timeupdate', 'play', 'pause', 'loadedmetadata'].forEach(ev => a.addEventListener(ev, () => sync(src)));
+  a.addEventListener('ended', () => { a.currentTime = 0; sync(src); });
+  return a;
+}
+function sync(src){
+  const a = audios[src], on = !a.paused, pct = a.duration ? a.currentTime / a.duration * 100 : 0;
+  document.querySelectorAll(`.player[data-src="${src}"]`).forEach(p => {
+    p.classList.toggle('playing', on); p.querySelector('.pbar i').style.width = pct + '%';
+    p.querySelector('.ptime').textContent = fmtT(on || a.currentTime ? a.currentTime : a.duration);
+  });
+  if (heroBtn.dataset.src === src){ heroBtn.classList.toggle('playing', on); heroBtn.querySelector('span').textContent = on ? 'Пауза' : 'Включить музыку'; }
+  if (cur === src){ mini.classList.toggle('playing', on); document.querySelector('#miniBar i').style.width = pct + '%'; document.getElementById('miniTime').textContent = fmtT(a.currentTime); }
+}
+function play(src, title, artist){
+  Object.entries(audios).forEach(([k, a]) => { if (k !== src) a.pause(); }); stopAB();
+  const a = getAudio(src);
+  if (cur === src && !a.paused){ a.pause(); return; }
+  cur = src; document.getElementById('miniTitle').textContent = title; document.getElementById('miniArtist').textContent = artist;
+  mini.classList.add('show'); a.play();
+}
+document.addEventListener('click', e => {
+  const b = e.target.closest('.player .pbtn');
+  if (b){ const p = b.closest('.player'); play(p.dataset.src, p.dataset.title, p.dataset.artist); return; }
+  const bar = e.target.closest('.player .pbar');
+  if (bar){ const p = bar.closest('.player'), a = getAudio(p.dataset.src), r = bar.getBoundingClientRect(), x = (e.clientX - r.left) / r.width;
+    if (cur !== p.dataset.src || a.paused) play(p.dataset.src, p.dataset.title, p.dataset.artist);
+    const seek = () => { a.currentTime = x * a.duration; };
+    a.duration ? seek() : a.addEventListener('loadedmetadata', seek, {once: true}); }
+});
+heroBtn.addEventListener('click', () => { const d = heroBtn.dataset; play(d.src, d.title, d.artist); });
+document.getElementById('miniBtn').addEventListener('click', () => { if (cur){ const a = audios[cur]; a.paused ? a.play() : a.pause(); } });
+document.getElementById('miniBar').addEventListener('click', e => { if (!cur) return; const a = audios[cur], r = e.currentTarget.getBoundingClientRect(); if (a.duration) a.currentTime = (e.clientX - r.left) / r.width * a.duration; });
+document.getElementById('miniX').addEventListener('click', () => { if (cur) audios[cur].pause(); mini.classList.remove('show'); });
+
+/* до и после сведения: обе записи играют вместе, слышна только выбранная */
+const abA = new Audio('audio/vedma_do.mp3'), abB = new Audio('audio/vedma_posle.mp3'); abA.preload = abB.preload = 'none';
+const abBtn = document.getElementById('abBtn');
+function stopAB(){ abA.pause(); abB.pause(); if (abBtn) abBtn.classList.remove('playing'); }
+if (abBtn){
+  const seg = document.getElementById('abSeg');
+  const setMode = m => { abA.volume = m === 'do' ? 1 : 0; abB.volume = m === 'posle' ? 1 : 0;
+    seg.classList.toggle('posle', m === 'posle'); seg.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.v === m)); };
+  setMode('posle');
+  seg.querySelectorAll('button').forEach(b => b.addEventListener('click', () => setMode(b.dataset.v)));
+  abBtn.addEventListener('click', () => {
+    if (!abA.paused){ stopAB(); return; }
+    Object.values(audios).forEach(a => a.pause());
+    abB.currentTime = abA.currentTime; Promise.all([abA.play(), abB.play()]).catch(() => {}); abBtn.classList.add('playing');
+  });
+  abA.addEventListener('timeupdate', () => { if (Math.abs(abA.currentTime - abB.currentTime) > .08) abB.currentTime = abA.currentTime; });
+  abA.addEventListener('ended', stopAB);
+}
+
+/* обратный отсчёт до конца распродажи */
+(function cd(){
+  const left = Math.max(0, SALE_END - Date.now()), b = document.querySelectorAll('#cd b');
+  [left / 864e5, left / 36e5 % 24, left / 6e4 % 60, left / 1e3 % 60].forEach((v, i) => b[i].textContent = String(Math.floor(v)).padStart(2, '0'));
+  setTimeout(cd, 1000);
+})();
+</script>
+</body>
+</html>
